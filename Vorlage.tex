@@ -1,0 +1,79 @@
+% !TeX program = xelatex
+% !TeX encoding = utf8
+% !TeX root = Vorlage.tex
+
+%% TODO: publish to CTAN
+\documentclass[margin=normal]{tex/hsrzf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+
+%% TODO: publish to CTAN
+\usepackage{tex/hsrstud}
+
+%% Language configuration
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=swiss]{german}
+
+%% License configuration
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+    lang={german},
+]{doclicense}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Metadata
+
+\course{Elektrotechnik}
+\module{ModAbk}
+\semester{Fr\"uhlingssemester 2020}
+
+\authoremail{vorname.name@ost.ch}
+\author{\textsl{Vorname Name} -- \texttt{\theauthoremail}}
+
+% did someone help you with this work?
+\contributors{
+  % I created this template, does that count?
+  Naoki Pross
+  % do not forget to add yourself!
+}
+
+\title{\texttt{\themodule} Zusammenfassung}
+\date{\thesemester}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+
+\begin{document}
+
+% use roman numberals for introductiory pages
+\pagenumbering{roman}
+
+\maketitle
+
+% \begin{abstract}
+% \end{abstract}
+
+% show the names of the people who contributed to this document.
+% \section*{Contributors}
+% \thecontributors
+
+\section*{Lizenz}
+\doclicenseThis
+
+\tableofcontents
+
+% actual content
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\section{Einf\"uhrung}
+\[
+  i\hbar \partial_t \left| \psi(t) \right\rangle 
+    = \hat{H} \left| \psi(t) \right\rangle
+\]
+
+\end{document}
