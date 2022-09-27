@@ -68,10 +68,52 @@
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\section{Einf\"uhrung}
-\[
-  i\hbar \partial_t \left| \psi(t) \right\rangle 
-    = \hat{H} \left| \psi(t) \right\rangle
-\]
+\section{Begriffe}
+\begin{itemize}
+  \item Prozess
+        \begin{itemize}
+          \item Die Gesamtheit zusammenwirkender Vorgänge, welche durch
+                die Materie, Energie und Information
+                umgefort, transportiert und gespeichert wird.
+        \end{itemize}
+
+  \item System
+        \begin{itemize}
+          \item Ist gegenüber der Umwelt abgegrenzt, hat Eingänge,
+                Ausgänge (und Zustand).
+        \end{itemize}
+
+  \item Modell
+        \begin{itemize}
+          \item Beschreibung von Systemen, wird genutzt für
+                Erklärung, Prognose, Gestaltung und Optimierung.
+          \item Es gibt kein "richtiges Modell",
+                ein Modell beschreibt ein System nur so genau wie nötig.
+        \end{itemize}
+  \item Modellieren
+        \begin{itemize}
+          \item Teilsysteme erstellen und diese
+                in weitere Teilsysteme aufzutrennen.
+                So erhält man einfache Grundsysteme (Grundglieder),
+                welche sich einfach Mathematisch beschreiben lassen.
+                Zusätzlich kehern einige Teilsysteme in ihrer
+                Struktur oft wieder und können wiederverwendet werden.
+
+          \item Top-Down: System in Teilsysteme teilen
+          \item Bottom-Up: System aus Grundglieder aufbauen
+        \end{itemize}
+  \item Grundglieder
+        \begin{itemize}
+          \item Kleinste Teilsysteme. Sie können weiter augeteilt werden in:
+          \item Statische Grundglieder(Systeme ohne Gedächtnis):
+                Der Ausgang ist nur vom aktuellen Eingang abhängig.
+                $y(t)=f(u(t))$
+          \item Dynamische Glieder (System mit Gedächtnis):
+                Der Ausgang ist vom aktuellen sowie von vergangenen Eingängen Abhängig.
+                Vergangene Eingänge werden im System als Zustand x(t) gespeichert.
+                $y(t)=f(u(t),x(t))$
+        \end{itemize}
+\end{itemize}
+
 
 \end{document}
