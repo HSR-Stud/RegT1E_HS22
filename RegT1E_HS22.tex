@@ -72,26 +72,24 @@
 \section{Wichtige Funktionen}
 \label{func}
 \begin{tabular}{p{5cm} p{10cm}}
-  \includegraphics[width = 2.5cm]{img/Sprungfunktion.png} & 
-  Sprungfunktion: \newline
-  Normierter Einschaltvorgang \newline 
-  $ t<0 : u(t) = 0, \ newline
-  t \geqslant 0: u(t) = 1 $ \\
+      \includegraphics[width = 2.5cm]{img/Sprungfunktion.png} &
+      Sprungfunktion: \newline
+      Normierter Einschaltvorgang \newline
+      $ t<0 : u(t) = 0, \ newline
+      t \geqslant 0: u(t) = 1 $                                                     \\
 
-  \includegraphics[width = 2.5cm]{img/Impulsfunktion.png} &
-  Impulsfunktion = Deltafunktion = \newline 
-  Diracimpuls = Delta-Distribution \newline
-  Unendlicher kurzer normierter Impuls mit unendlicher Amplitude
+      \includegraphics[width = 2.5cm]{img/Impulsfunktion.png} &
+      Impulsfunktion = Deltafunktion = \newline
+      Diracimpuls = Delta-Distribution \newline
+      Unendlicher kurzer normierter Impuls mit unendlicher Amplitude
 
-  Mathematische Eigenschaften:
-$\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t-t_0) dt = f(t_0)$ \newline
-$\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t) dt = f(0)$\newline
-$\int\limits _{-\infty} ^{+\infty} \delta (t) dt = 1$ \\
-%TODO: Find Graphic 
-&
-$\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$\\
-
-
+      Mathematische Eigenschaften:
+      $\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t-t_0) dt = f(t_0)$ \newline
+      $\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t) dt = f(0)$\newline
+      $\int\limits _{-\infty} ^{+\infty} \delta (t) dt = 1$                         \\
+      %TODO: Find Graphic 
+                                                              &
+      $\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$ \\
 \end{tabular}
 \section{Begriffe}
 \begin{itemize}
@@ -137,7 +135,7 @@ $\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$\
       \item Sprungantwort
             \begin{itemize}
                   \item Reaktion des Systems auf die Sprungfunktion. Siehe \refname{func}
-                        
+
             \end{itemize}
       \item Schrittantwort
       \item \begin{itemize}
@@ -172,11 +170,11 @@ $\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$\
                         $(\frac{dy(t)}{dt} =)$ \space $\dot{y}(t) = K \cdot u(t) $
                   \item Totzeitglied: Verzögert das Eingangssignal um die Totzeit $T_t$\\
                         $y(t) = u(t-T_t)$
-                  \item PT$_1$-Glied:
+                  \item PT\textsubscript{1}-Glied:
                         LZI-Übertragungsglied mit Proportionalem Übertragunsverhalten \\
                         und Verzögerung 1. Ordnung. (Bsp. Tiefpass 1.Ordnung als RC-Glied)
 
-                  \item PT$_2$-Glied
+                  \item PT\textsubscript{2}-Glied
                         \begin{itemize}
                               \item %TODO:
                         \end{itemize}
@@ -200,4 +198,59 @@ $\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$\
             \end{itemize}
 \end{itemize}
 
+
+
+
+\section{Tabllen}
+\subsection*{Blockschaltbilder-DIN}
+\begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \textbf{Summierer}                                       &
+      \textbf{Differenzbilder}                                 &
+      \textbf{Multiplizierer}                                  &
+      \textbf{Proportionalglied}                               &
+      \textbf{Integrierer}                                       \\
+      \includegraphics[width = 3cm]{img/Summierer.png}         &
+      \includegraphics[width = 3cm]{img/Differenzbilder.png}   &
+      \includegraphics[width = 3cm]{img/Multiplizierer.png}    &
+      \includegraphics[width = 3cm]{img/Proportionalglied.png} &
+      \includegraphics[width = 3cm]{img/Integrator.png}          \\
+      \hline
+      \textbf{Totzeitglied}                                    &
+      \textbf{PT\textsubscript{1}-Glied}                       &
+      \textbf{PT\textsubscript{2}-Glied}                       &
+      \textbf{idealer Differenzierer}                          &
+      \textbf{DT\textsubscript{1}-Glied}                         \\
+      \includegraphics[width = 3cm]{img/Totzeitglied.png}      &
+      \includegraphics[width = 3cm]{img/PT1-Glied.png}         &
+      \includegraphics[width = 3cm]{img/PT2-Glied.png}         &
+      \includegraphics[width = 3cm]{img/D-Glied.png}           &
+      \includegraphics[width = 3cm]{img/DT-Glied.png}            \\
+      \hline
+\end{tabular}
+
+\subsection*{Blockschaltbilder MatLab}
+\begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \textbf{Summierer}                                                       &
+      \textbf{Differenzbilder}                                                 &
+      \textbf{Konstante}                                                       &
+      \textbf{Proportionalglied}                                               &
+      \textbf{Integrierer}                                                       \\
+      \includegraphics[]{img/matlab/sum_block_icon.png}             &
+      \includegraphics[]{img/matlab/difference_block_icon.png}      &
+      \includegraphics[]{img/matlab/constant_block_icon.png}        &
+      \includegraphics[]{img/matlab/gain_block_icon.png}            &
+      \includegraphics[]{img/matlab/integrator_block_icon.png}    \\
+      \hline
+      \textbf{Totzeitglied}                                                    &
+      \textbf{Differenzierer}                                                  &
+      \textbf{}                                                                &
+      \textbf{}                                                                &
+      \textbf{}                                                                  \\
+      \includegraphics[]{img/matlab/transport_delay_block_icon.png} &
+      \includegraphics[]{img/matlab/derivative_block_icon.png}      &
+      \\
+      \hline
+\end{tabular}
 \end{document}
