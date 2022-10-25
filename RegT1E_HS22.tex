@@ -7,12 +7,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages
-
+\usepackage{mutlicol}
+\usepackage[export]{adjustbox}
+\usepackage{bm}
 %% TODO: publish to CTAN
 \usepackage{tex/hsrstud}
 
 %% Language configuration
 \usepackage{polyglossia}
+
 \setdefaultlanguage[variant=swiss]{german}
 
 %% License configuration
@@ -22,6 +25,7 @@
     version={4.0},
     lang={german},
 ]{doclicense}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Metadata
@@ -69,28 +73,7 @@
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\section{Wichtige Funktionen}
-\label{func}
-\begin{tabular}{p{5cm} p{10cm}}
-      \includegraphics[width = 2.5cm]{img/Sprungfunktion.png} &
-      Sprungfunktion: \newline
-      Normierter Einschaltvorgang \newline
-      $ t<0 : u(t) = 0, \ newline
-      t \geqslant 0: u(t) = 1 $                                                     \\
-
-      \includegraphics[width = 2.5cm]{img/Impulsfunktion.png} &
-      Impulsfunktion = Deltafunktion = \newline
-      Diracimpuls = Delta-Distribution \newline
-      Unendlicher kurzer normierter Impuls mit unendlicher Amplitude
-
-      Mathematische Eigenschaften:
-      $\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t-t_0) dt = f(t_0)$ \newline
-      $\int\limits _{-\infty} ^{+\infty} f(t) \cdot \delta (t) dt = f(0)$\newline
-      $\int\limits _{-\infty} ^{+\infty} \delta (t) dt = 1$                         \\
-      %TODO: Find Graphic 
-                                                              &
-      $\varepsilon(t) = \begin{cases} 0$ für $ t<0 \\ 1 $für$ t \geq 0 \end{cases}$ \\
-\end{tabular}
+%\input{include/Wichtige Funktionen/Wichtige Funktionen.tex}
 \section{Begriffe}
 \begin{itemize}
       \item Prozess
@@ -149,6 +132,7 @@
 
 \end{itemize}
 
+
 \subsection{Grundglieder}
 \label{Grundglieder}
 \begin{itemize}
@@ -176,32 +160,46 @@
 
                   \item PT\textsubscript{2}-Glied
                         \begin{itemize}
-                              \item %TODO:
+                              \item Übertragungsglied mit Verhalten 2. Ordnung.
+                              \item $T^2 \cdot \ddot{y}(t) + 2 \zeta T \cdot\dot{y}(t) + y(t) = K \cdot u(t)$
                         \end{itemize}
                   \item D-Glied(idealer Differenzierer)
                         \begin{itemize}
-                              \item %TODO:
+                              \item Bildet die Zeitliche Ableitung des Signals, mit einer Verstärkung K.
+                              \item $y(t) = K \cdot \frac{du(t)}{dt} = K\cdot \dot{u}(t)$
                         \end{itemize}
                   \item DT$_1$-Glied
                         \begin{itemize}
-                              \item %TODO:
+                              \item Realiserbar, im Gegensatz zum theoretischen D-Glied.
+                              \item $T \cdot \dot{y}(t) + y(t) = K \cdot \dot{u}(t)$
                         \end{itemize}
                   \item PI-, PD- PID-Glied (PDT$_1$ und PIDT$_1$)
                         \begin{itemize}
-                              \item %TODO:
+                              \item Werden häufig als Regler eingesetzt.
+                              \item Name setzt sich aus den Aktiven Pfaden zusammen.
+                                    \begin{itemize}
+                                          \item P: Proportional
+                                          \item I: integrierend
+                                          \item D: Differenzierend
+                                          \item P, I und D in Kombination sind Parallel
+                                          \item T\textsubscript{1,2,t} bezieht sich auf die vorangehende Komponente.
+                                    \end{itemize}
+                              \item Berechnet sich aus Superposition der Teilantworten
+                              \item $y(t) = A \cdot [K_P + K_I \cdot t + \frac{K_D}{T_C} \cdot e^{\frac{-t}{T_C}}]$
                         \end{itemize}
                   \item Lead-Glied, Lag-Glied, Lead-Lag-Glied
                         \begin{itemize}
-                              \item %TODO:
+                              \item Varianten von PDT\textsubscript{1}-Gliedern.
+                              \item Unterscheiden sich im Vorzeichen von $K_P$ und $K_D$.
                         \end{itemize}
 
             \end{itemize}
 \end{itemize}
 
+\input{/LTI-Systeme/LTI-Systeme.tex}
 
 
-
-\section{Tabllen}
+\section{Tabellen}
 \subsection*{Blockschaltbilder-DIN}
 \begin{tabular}{|c|c|c|c|c|}
       \hline
@@ -232,22 +230,22 @@
 \subsection*{Blockschaltbilder MatLab}
 \begin{tabular}{|c|c|c|c|c|}
       \hline
-      \textbf{Summierer}                                                       &
-      \textbf{Differenzbilder}                                                 &
-      \textbf{Konstante}                                                       &
-      \textbf{Proportionalglied}                                               &
-      \textbf{Integrierer}                                                       \\
+      \textbf{Summierer}                                            &
+      \textbf{Differenzbilder}                                      &
+      \textbf{Konstante}                                            &
+      \textbf{Proportionalglied}                                    &
+      \textbf{Integrierer}                                            \\
       \includegraphics[]{img/matlab/sum_block_icon.png}             &
       \includegraphics[]{img/matlab/difference_block_icon.png}      &
       \includegraphics[]{img/matlab/constant_block_icon.png}        &
       \includegraphics[]{img/matlab/gain_block_icon.png}            &
-      \includegraphics[]{img/matlab/integrator_block_icon.png}    \\
+      \includegraphics[]{img/matlab/integrator_block_icon.png}        \\
       \hline
-      \textbf{Totzeitglied}                                                    &
-      \textbf{Differenzierer}                                                  &
-      \textbf{}                                                                &
-      \textbf{}                                                                &
-      \textbf{}                                                                  \\
+      \textbf{Totzeitglied}                                         &
+      \textbf{Differenzierer}                                       &
+      \textbf{}                                                     &
+      \textbf{}                                                     &
+      \textbf{}                                                       \\
       \includegraphics[]{img/matlab/transport_delay_block_icon.png} &
       \includegraphics[]{img/matlab/derivative_block_icon.png}      &
       \\

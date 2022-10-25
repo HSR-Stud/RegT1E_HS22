@@ -1,0 +1,97 @@
+\section{Kenngrössen von Signalen}
+\begin{tabular}{p{6cm}p{12cm}}
+  Energie                                                            &
+  $W_n = \lim_{T \to \infty}  \int \limits _{-T/2} ^{T/2} |f(t)|^2 dt$            \\
+  Leistung                                                           &
+  $P_n = lim_{T \to \infty} \frac{1}{T} \int \limits _{-T/2} ^{T/2} |f(t)|^2 dt$  \\
+  *Linearer Mittelwert
+  \newline \tiny(auch: $ \bar{x}, x_m$)                              &
+  $X_0 = \frac{1}{T} \int \limits _{-T/2}^{T/2} x(t) dt $                         \\
+  *Quadratischer Mittelwert                                          &
+  $X^2 = \frac{1}{T} \int \limits _{-T/2}^{T/2} x^2(t) dt$                        \\
+  *Effektivwert \newline \tiny{("Quadratischer Mittelwert", RMS)}    &
+  $X^2 = \frac{1}{T} \int \limits _{-T/2}^{T/2} \sqrt{x^2(t)} dt $                \\
+  Mittelwert n. Ordnung \newline \tiny(nur Signale $\in \mathbb{R}$) &
+  $X^n = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x^n(t)dt$                        \\
+  Varianz                                                            &
+  $Var(x) = \sigma^2 = \frac{1}{T} \int \limits _{-T/2} ^{T/2} (x(t) - X_0)^2 dt$ \\
+  Standardabweichung                                                 &
+  $\sigma = \sqrt{Var(x)} = \sqrt{X^2 - (X_0)^2}$                                 \\
+\end{tabular}
+\textbf{\tiny *Hinweis: Formeln sind für Klasse 2a angegeben. \newline
+  Für Klasse 2b mit: $\lim_{t \to \infty}\;$ für Klasse 1: ohne $\frac{1}{T}$ }
+
+\subsubsection*{Die Autokorrelationsfunktion (AKF)}
+Für Klasse 2a
+$$ \varphi_{xx}(\pm \tau) = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x(t) \cdot x(t- \tau) dt
+  = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x(t + \tau) \cdot x(t)dt$$
+\textbf{Eigenschaften:}
+\begin{itemize}
+  \item $\varphi_{xx}(0) = X^2 = (X_0)^2 + \sigma^2$ \tiny Quadratischer Mittelwert \normalsize
+  \item $\varphi_{xx}(\tau) = \varphi_{xx}(\tau \pm n \cdot T)$, mit $n \in \mathbb{N}$,
+        AKF hat gleiche Periode $T$ wie $x(t)$
+  \item $\varphi_{xx}(\tau) = \varphi_{xx}(-\tau)$, AKF ist gerade Funktion
+  \item $\varphi_{xx}(0) \geq \left|\varphi_{xx}(\tau)\right|$
+  \item $\varphi_{xx}(\tau) \geq (X_0)^2 - \sigma^2$
+  \item \textbf{Klasse 2b:} $\lim_{t \to \infty}$ voran; \textbf{Klasse 1:} $\lim_{t \to \infty}$ anstelle $\frac{1}{T}$
+\end{itemize}
+
+\subsubsection*{Die Kreuzkorrelationsfunktion (KKF)}
+Für Klasse 2a:
+$$ (x \star y)(\tau) = \varphi_{x_1x_2}(\tau) = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x_1(t) \cdot x_2(t- \tau) dt
+  = \frac{1}{T} \int \limits _{-T/2} ^{T/2} x_1(t + \tau) \cdot x_2(t)dt$$
+\textbf{Eigenschaften:}
+\begin{itemize}
+  \item  $\varphi_{x_1x_2}(\tau) = \varphi_{x_1x_2}(-\tau)$
+  \item ist \textbf{nicht} Kommutativ($(x \star y)(\tau) \neq (y \star x)(\tau)$)
+  \item \textbf{Klasse 2b:} $\lim_{t \to \infty}$ voran; \textbf{Klasse 1:} $\lim_{t \to \infty}$ anstelle $\frac{1}{T}$
+\end{itemize}
+
+
+\subsection{Vergleich Signalleistung / physikalische Leistung}
+Leistungsverhältnisse zweier Leistungen wird oft in dB, Dezibel angegeben.
+Bel steht für das Verhältnis zweier Werte im Zehnerlogarithmus.
+Aufgrund des d (=dezi) muss ein Faktor 10 verwendet werden.
+Werden anstelle Leistungen Effektivwerte genommen wird ein Faktor 20 benötigt.
+Bei Referenzwerten $P_0$ ist dieser für $P_x$ resp $x_{rms}$ einzusetzen.
+
+$$10 \cdot \log_{10} (\frac{P_y}{P_x}) =
+  10 \cdot \log_{10}(\frac{(y_{rms})^2}{(x_{rms})^2}) =
+  20 \cdot log_{10}(\frac{y_{rms}}{x_{rms}}) = k[\textrm{dB}]$$
+daraus folgt:
+$$P_y = P_x \cdot 10^{\frac{k}{10}} \; P_x = \frac{P_y}{10^{\frac{k}{10}}}$$
+bzw:
+$$y_{rms} = x_{rms} \cdot 10^{\frac{k}{20}} \; x_{rms} = \frac{y_{rms}}{10^{\frac{k}{20}}}$$
+
+\subsection{Rauschen}
+
+effektive thermische Rauschleistung: $P_r = k \cdot T \cdot \Delta f $ \\
+daraus folgt: $U_r = \sqrt{4\cdot k \cdot T \cdot \Delta f \cdot R} $\\
+wobei $k = 1.380662\cdot 10^{-23} \frac{J}{K}$ = Boltzmann-Konstante\\
+
+Signal-Rausch-Verhältnis: $a_r = 10 \cdot log_{10}(\frac{P_s}{P_r}) = 20 \cdot log_{10}(\frac{U_s}{U_r})$
+Rauschzahl: $F = \frac{P_{s_{in}}}{P_{r_{in}}}\cdot \frac{P_{r_{in}}}{P_{s_{out}}} $
+logarithmisch: $A_F = 10 \cdot log_{10}(F) = a_{r_{in}} - a_{r_{out}}$
+
+\subsection{Amplitudenanalyse von Signalen}
+
+\textbf{Amplitudendichte (WSK-Dichte)} $p(a) = lim_{da \to 0} \frac{\sum t (a-\frac{da}{2} < x(t) \leq a + \frac{da}{2})}{T \cdot da}= \frac{1}{T} \cdot \frac{dt}{da}$ 
+
+\subsubsection*{Mittelwerte}
+
+\textbf{Linear:}$X_0 = \int \limits _{-\infty} ^{\infty} a \cdot p(a) da$
+\textbf{N-te Ordnung:}$X^n = \int \limits _{-\infty} ^{\infty} a^n \cdot p(a) da$
+Gauss verteilung \textbf{für Stochastische Signale} $p(a) = N(\mu, \sigma) = \frac{1}{\sigma \cdot \sqrt{2\pi}}\cdot e^{\frac{-(a-\mu)^2}{2\sigma^2}} $
+wobei: $\mu$ = Linearer Mittelwert ($X_0$) und $\sigma$ = Varianz
+
+\subsubsection*{Faltung zweier Amplitudendichten}
+
+$p(a) = \int \limits _{-\infty} ^{\infty} p_2(x) \cdot p_1(a-x)dx$
+Note: werden 2 Normalverteilungen gefaltet, entsteht eine Normalverteilung.
+
+\subsubsection*{Weiter Funktionen}
+
+
+Q-Funktion: $Q(\xi) = \frac{1}{\sqrt{2\pi}}\int \limits _{\xi} ^{\infty} e^{-\frac{y^2}{2}}d\xi$
+Fehlerfunktion $erf(\xi) = \frac{2}{\sqrt{\pi}} \int \limits _{0} ^{\xi} e^{-y^2} dy$
+komplementäre Fehlerfunktion $erfc(\xi) =  \frac{2}{\sqrt{\pi}} \int \limits _{\xi} ^{\infty} e^{-y^2} dy $
