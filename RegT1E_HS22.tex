@@ -10,6 +10,22 @@
 \usepackage{multicol}
 \usepackage[export]{adjustbox}
 \usepackage{bm}
+\usepackage{color, colortbl}
+\usepackage{trfsigns}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+
+\usepackage{pgfplots}
+\usepackage{lscape}
+
+
+\usetikzlibrary{plotmarks}
+
+\definecolor{TabularBackgroundColor}{rgb}{0.83,0.96,0.96}
+
 %% TODO: publish to CTAN
 \usepackage{tex/hsrstud}
 
@@ -39,8 +55,6 @@
 
 % did someone help you with this work?
 \contributors{
-  % I created this template, does that count?
-  Naoki Pross
   % do not forget to add yourself!
 }
 
@@ -73,7 +87,6 @@
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\input{include/Wichtige Funktionen/Wichtige Funktionen.tex}
 \section{Begriffe}
 \begin{itemize}
       \item Prozess
@@ -113,7 +126,7 @@
             \end{itemize}
       \item Grundglieder
             \begin{itemize}
-                  \item Kleinste Teilsysteme. Sie können weiter augeteilt werden in, siehe Abschnitt \nameref{Grundglieder}
+                  \item Kleinste Teilsysteme. Sie können weiter augeteilt werden in, siehe Abschnitt Grundglieder
             \end{itemize}
       \item Sprungantwort
             \begin{itemize}
@@ -133,98 +146,232 @@
 \end{itemize}
 
 
-\subsection{Grundglieder}
-\label{Grundglieder}
-\begin{itemize}
-      \item Statische Glieder(Systeme ohne Gedächtnis):
-            Der Ausgang ist nur vom aktuellen Eingang abhängig.
-            $y(t)=f(u(t))$
-            \begin{itemize}
-                  \item P-glied (Proportionalglied): Reagiert mit einem Faktor K auf den aktuellen Eingangswert.\\
-                        $y = K \cdot u$
-            \end{itemize}
-      \item Dynamische Glieder (System mit Gedächtnis):
-            Der Ausgang ist vom aktuellen sowie von vergangenen Eingängen Abhängig.
-            Vergangene Eingänge werden im System als Zustand x(t) gespeichert.
-            $y(t)=f(u(t),x(t))$ \\Können weiter unterteil werden in:
-            \begin{itemize}
-                  \item I-Glied (Integrierer):
-                        Ausgangssignal ist Abhängig vom Integrierten Einganssignal, Allenfalls mit einem Faktor K multipliziert. \\
-                        $y(t) = K \cdot \int \limits _{t=0} ^{t} u(\tau) d\tau + y(0)$ \\
-                        $(\frac{dy(t)}{dt} =)$ \space $\dot{y}(t) = K \cdot u(t) $
-                  \item Totzeitglied: Verzögert das Eingangssignal um die Totzeit $T_t$\\
-                        $y(t) = u(t-T_t)$
-                  \item PT\textsubscript{1}-Glied:
-                        LZI-Übertragungsglied mit Proportionalem Übertragunsverhalten \\
-                        und Verzögerung 1. Ordnung. (Bsp. Tiefpass 1.Ordnung als RC-Glied)
 
-                  \item PT\textsubscript{2}-Glied
-                        \begin{itemize}
-                              \item Übertragungsglied mit Verhalten 2. Ordnung.
-                              \item $T^2 \cdot \ddot{y}(t) + 2 \zeta T \cdot\dot{y}(t) + y(t) = K \cdot u(t)$
-                        \end{itemize}
-                  \item D-Glied(idealer Differenzierer)
-                        \begin{itemize}
-                              \item Bildet die Zeitliche Ableitung des Signals, mit einer Verstärkung K.
-                              \item $y(t) = K \cdot \frac{du(t)}{dt} = K\cdot \dot{u}(t)$
-                        \end{itemize}
-                  \item DT$_1$-Glied
-                        \begin{itemize}
-                              \item Realiserbar, im Gegensatz zum theoretischen D-Glied.
-                              \item $T \cdot \dot{y}(t) + y(t) = K \cdot \dot{u}(t)$
-                        \end{itemize}
-                  \item PI-, PD- PID-Glied (PDT$_1$ und PIDT$_1$)
-                        \begin{itemize}
-                              \item Werden häufig als Regler eingesetzt.
-                              \item Name setzt sich aus den Aktiven Pfaden zusammen.
-                                    \begin{itemize}
-                                          \item P: Proportional
-                                          \item I: integrierend
-                                          \item D: Differenzierend
-                                          \item P, I und D in Kombination sind Parallel
-                                          \item T\textsubscript{1,2,t} bezieht sich auf die vorangehende Komponente.
-                                    \end{itemize}
-                              \item Berechnet sich aus Superposition der Teilantworten
-                              \item $y(t) = A \cdot [K_P + K_I \cdot t + \frac{K_D}{T_C} \cdot e^{\frac{-t}{T_C}}]$
-                        \end{itemize}
-                  \item Lead-Glied, Lag-Glied, Lead-Lag-Glied
-                        \begin{itemize}
-                              \item Varianten von PDT\textsubscript{1}-Gliedern.
-                              \item Unterscheiden sich im Vorzeichen von $K_P$ und $K_D$.
-                        \end{itemize}
 
-            \end{itemize}
-\end{itemize}
+\begin{landscape}
+      \subsection{Grundglieder}
+      \begingroup
+      \scriptsize
+      \newcommand{\ImageWidth}{70pt}
+      \begin{tabularx}{\linewidth}{|p{100pt}|p{160pt}|p{60pt}|p{80pt}|p{120pt}|p{80pt}|}
+            \hline
+            \textbf{Benennung}
+             &
+            \textbf{Funktion}
+             &
+            \textbf{UTF\textsuperscript{1}}
+             &
+            \textbf{Symbol}
+             &
+            \textbf{Sprungantwort}
+             &
+            \textbf{Plot}
+            \\
+            \hline
+            \hline
+            \textbf{P-Glied\textsuperscript{2}}
+            \newline Proportionalglied
+             &
+            $y = K \cdot u$
+             &
+            $K$
+             &
+            \raisebox{-.5\height}{\includegraphics[width = \ImageWidth]{img/DIN-Symbole/Proportionalglied.png}}
+             &
+            Sprungantwort
+             &
+            \raisebox{-.5\height}{
+                  \resizebox{\ImageWidth}{!}{%
+                        \begin{tikzpicture}
+                              % Grid
+                              \draw[help lines,dashed] (0,0) grid (5,3);
 
+                              % Axes
+                              \draw[very thick,latex-latex] (0,3.25) node[left]{$y(t)$}
+                              |- (5.25,0) node[below]{$t$};
+
+                              % Plot function
+                              \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$y(0)$}
+                              -- ++(0.5,0)
+                              plot[domain=0:5,
+                                          samples = 50,
+                                          smooth]({\x}, {2});
+                        \end{tikzpicture}
+                  }
+            }
+            \\
+            \hline
+            \rowcolor{TabularBackgroundColor}
+            \textbf{I-Glied}
+            \newline(Idealer Integrierer)
+             &
+            $y(t) = K \cdot \int \limits _{t=0} ^{t} u(\tau) d\tau + y(0)$
+            \newline $\dot{y}(t) = K \cdot u(t)$
+             &
+            $K \frac{1}{s}$
+             &
+            \raisebox{-.5\height}{\includegraphics[width = \ImageWidth]{img/DIN-Symbole/Integrator.png}}
+
+             &
+            Sprungantwort
+             &
+            \raisebox{-.5\height}{
+                  \resizebox{\ImageWidth}{!}{%
+                        \begin{tikzpicture}
+                              % Grid
+                              \draw[help lines,dashed] (0,0) grid (5,3);
+
+                              % Axes
+                              \draw[very thick,latex-latex] (0,3.25) node[left]{$y(t)$}
+                              |- (5.25,0) node[below]{$t$};
+
+                              % Plot function
+                              \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$y(0)$}
+                              -- ++(0.5,0)
+                              plot[domain=0:5,
+                                          samples = 50,
+                                          smooth]({\x},);
+                        \end{tikzpicture}
+                  }
+            }
+            \\
+            \hline
+            \textbf{Totzeit-Glied}
+             &
+            $y(t) = u(t-T_t)$
+             &
+            $e^{-s T_t}$
+             &
+            \raisebox{-.5\height}{\includegraphics[width = \ImageWidth]{img/DIN-Symbole/Totzeitglied.png}}
+             &
+            Sprungantwort
+             &
+            \raisebox{-.5\height}{
+                  \resizebox{\ImageWidth}{!}{%
+                        \begin{tikzpicture}
+                              % Grid
+                              \draw[help lines,dashed] (0,0) grid (5,3);
+
+                              % Axes
+                              \draw[very thick,latex-latex] (0,3.25) node[left]{$y(t)$}
+                              |- (5.25,0) node[below]{$t$};
+
+                              % Plot function
+                              \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$y(0)$}
+                              -- ++(0.5,0)
+                              plot[domain=0:5,
+                                          samples = 100,
+                                    ]({\x},{ (\x<=2) * 0  + (\x>2) * 2});
+                        \end{tikzpicture}
+                  }
+            }
+            \\
+            \hline
+            \rowcolor{TabularBackgroundColor}
+            \textbf{PT\textsubscript{1}-Glied}
+            {
+                  \tiny \newline K: Verstärkung
+                  \newline T: Zeitkonstante
+            }
+             &
+            $ T\dot{y} + y = K u(t)$
+            \newline $T= \frac{1}{K_I \cdot K_P} $
+            \newline $K = \frac{1}{K_P}$
+             &
+            $\frac{K}{1+T_s}$
+             &
+            \raisebox{-.5\height}{\includegraphics[width = \ImageWidth]{img/DIN-Symbole/PT1-Glied.png}}
+             &
+            Sprungantwort
+             &
+            \raisebox{-.5\height}{
+                  \resizebox{\ImageWidth}{!}{%
+                  \includegraphics{matlab/PT2.png}
+
+
+                        \begin{tikzpicture}
+                              % Grid
+                              \draw[help lines,dashed] (0,0) grid (5,3);
+
+                              % Axes
+                              \draw[very thick,latex-latex] (0,3.25) node[left]{$y(t)$}
+                              |- (5.25,0) node[below]{$t$};
+
+                              % Plot function
+                              \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$y(0)$}
+                              -- ++(0.5,0)
+                              plot[domain=0:5,
+                                          samples = 50,
+                                          smooth]({\x},{2.5*(1- exp(-(\x)))});
+                        \end{tikzpicture}
+                  }
+            }
+            \\
+            \hline
+            \textbf{PT\textsubscript{2}-Glied}
+            {\tiny
+                  \newline K: Verstärkung
+                  \newline T: Zeitkonstante
+                  \newline $\zeta$: Dämpfungskonstante
+            }
+             &
+            $T^2 \cdot \ddot{y}(t) + 2 \zeta T \cdot \dot{y}(t) + y(t) = K \cdot u(t)$
+            \newline $y(t) = K \cdot x(t) + T^2 \cdot (-\ddot{y}(t)) - 2 \zeta T \cdot \dot{y}(t)$
+            {\tiny
+                        \newline $\zeta = \frac{h}{\sqrt{h^2 + \pi^2}}$
+                        \newline $h = \log(\frac{y_m}{y_{\infty}})$
+                  }
+             &
+            $\frac{K}{T^2 + s^2 + 2 \zeta T s + 1}$
+             &
+            \raisebox{-.5\height}{\includegraphics[width = \ImageWidth]{img/DIN-Symbole/PT2-Glied.png}}
+             &
+            $KA(1+e^{\sigma t}(-cos(\omega t) + \frac{\sigma}{\omega}sin(\omega t)))$
+            {\tiny
+                        \newline $\omega = \frac{2\pi}{T_m}$
+                        \newline $K = \frac{y_{\infty}}{A} $
+                        \newline $\sigma = \frac{h\omega}{\pi}$
+                  }
+             &
+            \raisebox{-.5\height}{
+                  \resizebox{\ImageWidth}{!}{%
+                        \begin{tikzpicture}
+                              % Grid
+                              \draw[help lines,dashed] (0,0) grid (5,3);
+
+                              % Axes
+                              \draw[very thick,latex-latex] (0,3.25) node[left]{$y(t)$}
+                              |- (5.25,0) node[below]{$t$};
+
+                              % Plot function
+                              \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$y(0)$}
+                              -- ++(0.5,0)
+                              plot[domain=0:5,
+                                          samples = 50,
+                                          smooth]({\x},{2.5  *   (1- exp(-3*(\x))  *  (- cos(deg(1.9848*\x)) + (-3/1.9848)*sin(deg(1.9848*\x)))  });
+                                          %KA = 2.5, Sigma = -3, Omega = 1.9848
+                        \end{tikzpicture}
+                  }
+            }
+      \end{tabularx}
+      \tiny{
+            \\
+            1. UTF = Übertragungsfunktion (Laplace)\\
+            2. Proportionalglied ist einziges Statisches glied.\\
+      }
+      \endgroup
+      \normalsize
+\end{landscape}
+
+\section{Klassen von Systemen}
+
+
+\newpage
+\input{include/Integraltransformationen/Integraltransformationen.tex}
+\input{include/Wichtige Funktionen/Wichtige Funktionen.tex}
 \input{include/LTI-Systeme/LTI-Systeme.tex}
 
 \section{Tabellen}
-\subsection*{Blockschaltbilder-DIN}
-\begin{tabular}{|c|c|c|c|c|}
-      \hline
-      \textbf{Summierer}                                       &
-      \textbf{Differenzbilder}                                 &
-      \textbf{Multiplizierer}                                  &
-      \textbf{Proportionalglied}                               &
-      \textbf{Integrierer}                                       \\
-      \includegraphics[width = 3cm]{img/Summierer.png}         &
-      \includegraphics[width = 3cm]{img/Differenzbilder.png}   &
-      \includegraphics[width = 3cm]{img/Multiplizierer.png}    &
-      \includegraphics[width = 3cm]{img/Proportionalglied.png} &
-      \includegraphics[width = 3cm]{img/Integrator.png}          \\
-      \hline
-      \textbf{Totzeitglied}                                    &
-      \textbf{PT\textsubscript{1}-Glied}                       &
-      \textbf{PT\textsubscript{2}-Glied}                       &
-      \textbf{idealer Differenzierer}                          &
-      \textbf{DT\textsubscript{1}-Glied}                         \\
-      \includegraphics[width = 3cm]{img/Totzeitglied.png}      &
-      \includegraphics[width = 3cm]{img/PT1-Glied.png}         &
-      \includegraphics[width = 3cm]{img/PT2-Glied.png}         &
-      \includegraphics[width = 3cm]{img/D-Glied.png}           &
-      \includegraphics[width = 3cm]{img/DT-Glied.png}            \\
-      \hline
-\end{tabular}
 
 \subsection*{Blockschaltbilder MatLab}
 \begin{tabular}{|c|c|c|c|c|}
