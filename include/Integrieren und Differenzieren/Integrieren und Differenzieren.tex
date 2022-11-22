@@ -16,46 +16,58 @@
 \section{Integrieren und Differenzieren}
 \subsection{Integrationsregeln}
 \begin{tabular}{ll}
-    Linearit\"at & $\int{f(\alpha x+\beta )dx=\frac{1}{\alpha}\cdot F(\alpha x+\beta)+C}$ \\
-    Partielle Integration & $\int\limits_a^b{u'(x)\cdot v(x)dx}=\biggl[
-    u(x)\cdot v(x) \biggr]_a^b-\int\limits_a^b{u(x)\cdot v'(x)dx}$ 
-    \tiny($v(x)$ = einfacheste Funktion wählen!) \normalsize\\
-    
-    Substitution (Rationalisierung) & $t=\tan\frac{x}{2}, \qquad
+  Linearit\"at                    & $\int{f(\alpha x+\beta )dx=\frac{1}{\alpha}\cdot F(\alpha x+\beta)+C}$ \\
+  
+  \rowcolor{TabularBackgroundColor}
+  Partielle Integration           & $\int\limits_a^b{u'(x)\cdot v(x)dx}=\biggl[
+      u(x)\cdot v(x) \biggr]_a^b-\int\limits_a^b{u(x)\cdot v'(x)dx}$
+  \tiny($v(x)$ = einfacheste Funktion wählen!) \normalsize                                                 \\
+
+  Substitution (Rationalisierung) & $t=\tan\frac{x}{2}, \qquad
     dx=\frac{2dt}{1+t^2} \qquad \sin  x=\frac{2t}{1+t^2} \qquad \cos x=\frac{1-t^2}{1+t^2}
-    \quad\int{R(\sin(x)\cos(x))dx}$\\
+  \quad\int{R(\sin(x)\cos(x))dx}$                                                                          \\
+  
+  \rowcolor{TabularBackgroundColor}
+  Allgemeine Substitution         &
+  $\int\limits_{a}^{b}{f(x)dx}=\int\limits_{g(a)}^{g(b)}{f(g(t))\cdot
+  g'(t)dt}\qquad x=g(t)\qquad g'(t)=\frac{dt}{dx}\qquad dx=\frac{1}{g'(t)}\cdot dt$                        \\
 
-    Allgemeine Substitution &
-    $\int\limits_{a}^{b}{f(x)dx}=\int\limits_{g(a)}^{g(b)}{f(g(t))\cdot
-    g'(t)dt}\qquad x=g(t)\qquad g'(t)=\frac{dt}{dx}\qquad dx=\frac{1}{g'(t)}\cdot dt$\\
-    
-    Logarithmische Integration & $\int{\frac{f'(x)}{f(x)}dx}=\ln|f(x)|+C 
-    \qquad{(f(x)\neq 1)}$\\
+  Logarithmische Integration      & $\int{\frac{f'(x)}{f(x)}dx}=\ln|f(x)|+C
+  \qquad{(f(x)\neq 1)}$                                                                                    \\
 
-    Spezielle Form des Integranden & $\int{f'(x)\cdot
-    (f(x))^{\alpha} dx}= f(x)^{\alpha +1}\cdot \frac{1}{\alpha+1}+C
-    \qquad{(\alpha \neq -1)}$\\
+  \rowcolor{TabularBackgroundColor}
+  Spezielle Form des Integranden  & $\int{f'(x)\cdot
+      (f(x))^{\alpha} dx}= f(x)^{\alpha +1}\cdot \frac{1}{\alpha+1}+C
+  \qquad{(\alpha \neq -1)}$                                                                                \\
 
-    Differentiation & $\int \limits ^{b} _{a} {f'(t)dt}=f(b)-f(a)$\qquad
-    $\frac{d}{dx} \int \limits ^{x} _{1} {f(t)dt}=f(x)$
-  \end{tabular}
-
-\subsection{Ableitungsregeln}
-\begin{tabular}{ll}
-Linerität & $(\lambda f + \mu g)'(x) = \lambda f'(x) + \mu g'(x) \; \forall \lambda, \mu \in \mathbb{R} $ \\
-Produktregel & $(f\cdot g)' = f'g + fg'$\\
-Quotientenregel & $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$\\
-Kettenregel & $ (f(g))' = f'(g) \cdot g' $\\
-Potez & $((x-a)^n)'= n\cdot(x-a)^{n-1}$\\
-Trigo & $sin'''' = cos''' = -sin'' = -cos' = sin$\\
+  Differentiation                 & $\int \limits ^{b} _{a} {f'(t)dt}=f(b)-f(a)$\qquad
+  $\frac{d}{dx} \int \limits ^{x} _{1} {f(t)dt}=f(x)$
 \end{tabular}
+\\
 
-
-\subsection{Partialbruchzerlegung}
-Nenner Faktorisieren, bei mehreren gleichen Termen steigt exponent des Nenners
-Zähler = Polynom mit einem Grad kleiner als Nenner
-Zähler Gleichsetzen, Mit Gleichungssystem nach A,B,C.. auflösen.
-Ansätze:
-$$\frac{\dots}{x(x-3)^2} = \frac{A}{x} + \frac{B}{x-3} + \frac{C}{(x-3)^2}$$
-$$\frac{\dots}{(x-2)^3} = \frac{A}{x-2} + \frac{B}{(x-2)^2} + \frac{C}{(x-2)^3}$$
-$$\frac{\dots}{x^4 + x^2} = \frac{A}{x} + \frac{B}{x^2} + \frac{Cx + D}{x^2 + 1}$$
+\begin{minipage}{0.5\textwidth}
+  \subsection{Ableitungsregeln}
+  \begin{tabular}{ll}
+    Linerität       & $(\lambda f + \mu g)'(x) = \lambda f'(x) + \mu g'(x)$ \\
+    \rowcolor{TabularBackgroundColor}
+    Produktregel    & $(f\cdot g)' = f'g + fg'$                             \\
+    Quotientenregel & $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$              \\
+    \rowcolor{TabularBackgroundColor}
+    Kettenregel     & $ (f(g))' = f'(g) \cdot g' $                          \\
+    Potenz          & $((x-a)^n)'= n\cdot(x-a)^{n-1}$                       \\
+    \rowcolor{TabularBackgroundColor}
+    Trigo           & $sin'' = cos' = -sin$                                 \\
+    Schrittfunktion & $\sigma'(t) = \delta(t)$
+  \end{tabular}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+  \subsection{Partialbruchzerlegung}
+  Nenner Faktorisieren (Nennerexponent)
+  \\Zähler = Polynom (Nennergrad -1)
+  \\Gleichsetzen mit Originalbruch
+  \\Mit Gleichungssystem auflösen.
+  \\Ansätze:
+  \\ $\frac{\dots}{x(x-3)^2} = \frac{A}{x} + \frac{B}{x-3} + \frac{C}{(x-3)^2}$
+  \\ $\frac{\dots}{(x-2)^3} = \frac{A}{x-2} + \frac{B}{(x-2)^2} + \frac{C}{(x-2)^3}$
+  \\ $\frac{\dots}{x^4 + x^2} = \frac{A}{x} + \frac{B}{x^2} + \frac{Cx + D}{x^2 + 1}$
+\end{minipage}

@@ -2,7 +2,8 @@
 %\usepackage{bm}
 %\usepackage{multicol}
 \section{LTI-Systeme}
-\begin{multicols}{2}
+\begin{minipage}{0.5\textwidth}
+
     \subsection*{Linearität und Zeitinvarianz}
     \begin{itemize}
         \item $\mathcal{T}[x_1(t) + x_2(t)] = y_1(t) + y_2(t)$
@@ -13,30 +14,35 @@
     \subsection{Beschreibung von LTI Systemen}
 
     \subsubsection{Impulsantwort}
-    Impulsfunktion $\delta(t)$ wird am Eingang des Systems angelegt,
-    die Reaktion darauf am Ausgang nennt man die \textbf{Impulsantwort} \bm{$h(t)$}.
-    Sie beschreibt ein LTI-System vollständig.
+    Systemreaktion auf $\delta(t)$.
 
-    $$ y(t) = \mathcal{T}[x(t)]
+    $ y(t) = \mathcal{T}[x(t)]
         = \int \limits _{-\infty} ^{\infty} x(\tau) \cdot h(t-\tau)d\tau
-        = x(t) * h(t)$$
+        = x(t) * h(t)$
 
     \subsubsection{Frequenzantwort}
-    Die \textbf{Frequenzantwort} $\bm{H(\omega)}$ ist die Fouriertransformierte Impulsantwort.
-    Sie ist eine komplexwertige dimensionslose Gewichstsfunktion.
-    Auch sie beschreibt ein LTI-System vollständig.
+    Fouriertransformierte Impulsantwort.
+    \\ Auch Übertragungsfunktion genannt.
 
-    $$ Y(\omega) = X(\omega) \cdot H(\omega)$$
+    $$ Y(\omega) = X(\omega) \cdot H(\omega) = X(\omega) \cdot G(j\omega)$$
 
     \subsubsection{Berechnung des Ausgangssignals}
-    1. Fourier-Transformation:  $X(\omega) = \mathcal{F}[x(t)]$ \\
-    2. Berechnung in Frequenz:  $Y(\omega) = X(\omega) \cdot H(\omega)$ \\
-    3. Rücktransformation:  $y(t) = \mathcal{F}^{-1}[Y(\omega)]$
+    1. Integraltransformation:
+    \newline $X(\omega) = \mathcal{F}[x(t)] {\; \big / \;}
+        X(s) = \mathscr{L}[x(t)]$ \\
+    2. Berechnung in Bild / Frequenz:
+    \newline $Y(\omega) = X(\omega) \cdot H(\omega)  {\; \big / \;}
+        Y(s) = X(s) \cdot G(s)$ \\
+    3. Rücktransformation:
+    \newline $y(t) = \mathcal{F}^{-1}[Y(\omega)] = \mathscr{L}^{-1}[Y(s)]$
 
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
 
 
     \subsection{Bezeichnungen}
-    Übertragungsfunktion: $H(\omega)=|H(\omega)| \cdot e^{j\varphi_H(\omega)}$ \\
+    Übertragungsfunktion: $H(\omega) = G(j\omega) =|H(\omega)| \cdot e^{j\varphi_H(\omega)}$ \\
+    {\tiny auch: Frequenzgang}\\
     Amplitudengang: $|H(\omega)|$ \\
     Phasengang: $\varphi_H(\omega)$ \\
 
@@ -53,4 +59,5 @@
     \begin{center}
         \includegraphics[width = 4cm]{include/Integraltransformationen/img/BiBo.png}
     \end{center}
-\end{multicols}
+
+\end{minipage}%
