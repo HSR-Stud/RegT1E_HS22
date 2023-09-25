@@ -27,17 +27,21 @@
   \end{tabular}
 
   \subsubsection*{Vorgehen}
+  \noindent
   \begin{enumerate}
     \item $\tau$ bzw. $t-\tau$ in die Entsprechende Funktion Einsetzen
-    \item Bereiche Bestimmen an denen die Funktion $\neq 0$
-    \item Bereiche bzw. eingesetzte Funktionen in Hilfsdiagramm einzechnen (siehe Bsp.)
+    \item Bereiche für $f \neq 0$
+    \item Bereiche in Hilfsdiagramm einzechnen (siehe Bsp.)
     \item Einzelne Integrationsbereiche mit Hilfe Diagramm bestimmen,
           indem Zeit $t$ "raufgezählt" und übergänge der Grenzen beachtet wird
     \item Integrale Bestimmen, Integralgrenzen = Eingezeichnete Grenzen im Diagramm.
     \item Integrale auflösen
   \end{enumerate}
-  \includegraphics[width = 4.5cm]{include/Integraltransformationen/img/Faltungsgrenzen.png}
-  \\\textbf{Beispiel}
+
+
+
+  \textbf{Beispiel}
+  \\\includegraphics[width = 4.5cm]{include/Integraltransformationen/img/Bsp_Grenzen.png}
   \\$f(t)= \begin{cases}
     2 \textrm{ für } 0 <t<4 \\
     0 \textrm{ sonst}
@@ -47,15 +51,19 @@
     0 \textrm{ sonst}
   \end{cases}$
     \\1.$(f * g)(t) \int \limits _{-\infty} ^{\infty} f(\tau)g(t-\tau)d\tau$
-    \\2.  $f(t): 0<\tau<4g(t): 0<t-\tau<1 \Rightarrow t-1 < \tau < t$
-    \\3.  \includegraphics[width = 2cm]{include/Integraltransformationen/img/Bsp_Grenzen.png}
-    \\4. und 5. $(f*g)(t) =$
-    \\$t \leq 0: 0$
-  \\$0 < t \leq 1: \int \limits _0 ^t 2 \cdot 3 d\tau$
-    \\$1<t \leq 4: \int \limits _{t-1} ^t 2\cdot 3 d\tau$
-  \\$4 <t \leq 5: \int \limits _{t-1} ^4 2\cdot 3 d\tau$
-    \\$5< t: 0$
-
+    \\2.  $
+  f(t): 0<\tau<4 \\
+  g(t): 0<t-\tau<1 \Rightarrow t-1 < \tau < t
+  $
+    \\3. Siehe oben.
+    \\4. und 5.
+    \\ $(f*g)(t) = \begin{cases}
+    t \leq 0: 0
+    \\0 < t \leq 1: \int \limits _0 ^t 2 \cdot 3 d\tau
+    \\1<t \leq 4: \int \limits _{t-1} ^t 2\cdot 3 d\tau
+    \\4 <t \leq 5: \int \limits _{t-1} ^4 2\cdot 3 d\tau
+    \\5< t: 0
+  \end{cases}$
 \end{multicols}
 
 
@@ -91,11 +99,13 @@
   \subsubsection*{Fouriertransformation $\mathcal{F}(\omega)$}
   $$ X(\omega) = \mathcal{F}[x(t)] = \int \limits _{-\infty} ^{+\infty} x(t) \cdot e^{-j \omega t} dt $$
   $$ x(t) = \mathcal{F}^{-1}[X(\omega)] = \frac{1}{2 \pi} \int \limits _{- \infty} ^{+ \infty} X(\omega) \cdot e^{j \omega t} d\omega$$
-  Rechenregeln Siehe Anhang.
+  \\{\tiny $\left|X(\omega)\right| =$ Amplitudendichtefunktion}
+  \\{\tiny $arg(X(\omega)) =$ Phasendichtefunktion}
+  \\[5pt] Rechenregeln Siehe Anhang.
 
 
   \subsubsection*{Spektraldarstellung}
-  \includegraphics[width = 6cm]{include/Integraltransformationen/img/Spektrum.png}
+  \includegraphics[width = 8cm]{include/Integraltransformationen/img/Spektrum.png}
 \end{multicols}
 
 \subsection{Laplace-Transformation}

@@ -1,0 +1,22 @@
+\section{Fourier-Reihe}
+\subsubsection*{Formen}
+\begin{tabular}{p{4cm}p{15cm}}
+  Trigonometrische Form &
+  $x(t) = \frac{u_0}{2} + \sum \limits _{n = 1} ^{\infty} u_n \cdot cos(2\pi n f_0 \cdot t) + v_n \cdot sin(2\pi n f_0 \cdot t) $
+  \newline $u_n = \frac{2}{T} \int \limits _{T} x(t) \cdot cos(2\pi n f_0 \cdot t)dt$
+  $u_n = \frac{2}{T} \int \limits _{T} x(t) \cdot sin(2\pi n f_0 \cdot t)dt$
+  \\[20pt]
+  Harmonische Form      &
+  $x(t) = r_0 + \sum \limits _{n = 1} ^{\infty} r_n \cdot cos(2\pi n f_0 \cdot t + \varpi_n)$
+  \newline $r_0 = \frac{u_0}{2} = \frac{1}{T} \int  \limits _{T} x(t) dt $
+  $r_n > 0 = \sqrt{u_n^2 + v_n^2}$
+  $\varphi = arg(u_n - j \cdot v_n) $
+  \\
+  Komplexe Form         &
+  $x(t) = \sum \limits _{n= -\infty} ^{\infty} c_n \cdot e^{jn2\pi f_0 \cdot t}$
+  \newline $c_n = \frac{1}{T} \int \limits _{T} x(t) \cdot e^{-j n 2 \pi f_0 \cdot t} dt$
+\end{tabular}
+
+\subsubsection*{Transformation und Rücktransformation}
+$$ X(\omega) = \mathcal{F}[x(t)] = \int \limits _{-\infty} ^{+\infty} x(t) \cdot e^{-j \omega t} dt $$
+$$ x(t) = \mathcal{F}^{-1}[X(\omega)] = \frac{1}{2 \pi} \int \limits _{- \infty} ^{+ \infty} X(\omega) \cdot e^{j \omega t} d\omega$$

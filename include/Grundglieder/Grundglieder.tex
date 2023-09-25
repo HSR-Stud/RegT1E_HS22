@@ -1,11 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Packages
+%Needs Commands:
+%\newcommand{\skript}[1]{{\scriptsize \color{RefColor}Skript S.#1}}
+%\newcommand{\titlewithref}[2]{\texorpdfstring{#1 {\scriptsize \color{RefColor}Skript S.#2}}{#1}}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{landscape}
-    \subsection{Grundglieder}
+    \subsection{\titlewithref{Grundglieder}{26,29,30,31,193,202}}
     \begingroup
     \scriptsize
     \newcommand{\ImageWidth}{70pt}
@@ -279,10 +283,9 @@
                             \draw[ultra thick,teal] (-0.5,0) node[left,black](s0){$0$}
                             -- ++(0.5,0)
                             plot[domain=0:5,
-                                        samples = 50,
-                                        %TODO: Fix this!
-                                        smooth]({\x},{2.5  *   (1- exp(-3*(\x))  *  (- cos(deg(1.9848*\x)) + (-3/1.9848)*sin(deg(1.9848*\x)))  });
-                            %KA = 2.5, Sigma = -3, Omega = 1.9848
+                                        samples = 100,
+                                        smooth]({\x},{1-exp(-0.3*3*\x)*(cos(deg(sqrt(1-0.3^2)*3*\x))+0.3/(sqrt(1-0.3^2))*sin(deg(sqrt(1-0.3^2)*3*\x)))
+                                        });
                       \end{tikzpicture}
                 }
           }

@@ -20,7 +20,7 @@
 \usepackage{hyperref}
 
 \usetikzlibrary{plotmarks}
-
+\usepackage{pdfpages}
 \usepackage{pgfplots}
 \usepackage{lscape}
 
@@ -29,10 +29,10 @@
 
 \definecolor{TabularBackgroundColor}{rgb}{0.83,0.96,0.96}
 \definecolor{TabularTitleColor}{rgb}{0.89,0.94,0.94}
-\definecolor{RefColor}{rgb}{0.59,0.88,0.72}
+\definecolor{RefColor}{rgb}{0.2,0.47,0.39}
 
 \newcommand{\skript}[1]{{\scriptsize \color{RefColor}Skript S.#1}}
-\newcommand{\tiltewithref}[2]{\texorpdfstring{#1 {\scriptsize \color{RefColor}Skript S.#2}}{#1}}
+\newcommand{\titlewithref}[2]{\texorpdfstring{#1 {\scriptsize \color{RefColor}Skript S.#2}}{#1}}
 %% TODO: publish to CTAN
 \usepackage{tex/hsrstud}
 
@@ -153,47 +153,43 @@
 \end{itemize}
 \normalsize
 
-\subsection{Regelkreis}
-\includegraphics{img/Regelkreis.png}
+\subsection{\titlewithref{Regelkreis}{9}}
+\includegraphics[height = 4cm]{img/Regelkreis.png}
 
-\subsection{Steuern und Regeln}
-\begin{minipage}{0.5\textwidth}
-      \subsubsection*{Steuerung}
 
-\end{minipage}%
-\begin{minipage}{0.5\textwidth}
-    a  
-\end{minipage}
+\subsection*{\titlewithref{Steuerung}{18}}
+\subsection*{\titlewithref{Regelung}{17}}
+\subsection*{\titlewithref{Gegen- und Mitkopplung}{106}}
 
 
 \input{include/Grundglieder/Grundglieder.tex}
 
 
-\section{\tiltewithref{Klassifizierung von Systemen}{76,78,81}}
-\begin{tabular}{|p{10cm}|p{10cm}|}
+\section{\titlewithref{Klassifizierung von Systemen}{76,78,81}}
+\begin{tabular}{|p{0.5\textwidth}|p{0.5\textwidth}|}
       \hline
       \rowcolor{TabularTitleColor}
-      \textbf{Statisch} & \textbf{Dynamisch} \\
-      \begin{itemize}   
+      \textbf{Statisch}      & \textbf{Dynamisch}    \\
+      \begin{itemize}
             \item System ohne Gedächtnis
             \item Ausgang hängt nur von aktuellem Eingang ab.
             \item $y(t) = f(x(t)) \forall t$
       \end{itemize}
-      & 
-      \begin{itemize}     
+                             &
+      \begin{itemize}
             \item System mit Gedächtnis
             \item Ausgang hängt von aktuellem sowie vergangenen und zukünftigen Eingängen ab.
-            \item $y(t) = f(x(t \pm t_0)) $ 
+            \item $y(t) = f(x(t \pm t_0)) $
       \end{itemize}
       \\
       \hline
       \rowcolor{TabularTitleColor}
-      \textbf{Kausal} & \textbf{Akausal} \\
+      \textbf{Kausal}        & \textbf{Akausal}      \\
       \begin{itemize}
             \item Ausgang \textbf{unabhängig} von zukünftigen Werten
             \item $y(t) = f(x(t-t_0)) $
       \end{itemize}
-      &
+                             &
       \begin{itemize}
             \item Ausgang \textbf{abhängig} von zukünftigem Eingang
             \item $y(t) = f(x(t+t_0)) $
@@ -201,37 +197,49 @@
       \\
       \hline
       \rowcolor{TabularTitleColor}
-      \textbf{Linear} & \textbf{Nicht-Linear}\\
+      \textbf{Linear}        & \textbf{Nicht-Linear} \\
       \begin{itemize}
             \item Linearkombination am Eingang -> Linearkombination am Ausgang
             \item Lineare DGL mit konstanten Koeffizenten
             \item $\Phi(\alpha x_a(t)+\beta x_b(t)) =\alpha y_a(t) + \beta y_b(t)$
             \item $\Phi(0) = 0$
       \end{itemize}
-      & 
+                             &
       \begin{itemize}
-            \item Ausgang ist nicht immer Proportional zum Eingang 
+            \item Ausgang ist nicht immer Proportional zum Eingang
             \item Keine Superposition
             \item Neue Frequenzanteile werden erzeugt
       \end{itemize}
 
       \\
       \rowcolor{TabularTitleColor}
-      \textbf{Zeitinvariant} & \textbf{Zeitvariant}\\
+      \textbf{Zeitinvariant} & \textbf{Zeitvariant}  \\
       \begin{itemize}
             \item Zeitliche Verschiebung am Eingang -> gleiche Zeitliche Verschiebung am Ausgang
             \item $\Phi(x(t-t_v)) = y(t-t_v)$
-      \end{itemize} 
-      &
+      \end{itemize}
+                             &
       \begin{itemize}
             \item Zeitinvarianz ist nicht erfüllt
             \item y(t) enthält t unabhägig von x(t)
-      \end{itemize} 
+      \end{itemize}
       \\
       \hline
-  
 \end{tabular}
-
+\section{Wichtige Seiten im Skript:}
+\titlewithref{Klassifizierung von Modellen}{100} \\
+\titlewithref{Linearisierung von Systemen}{93,95}
+\subsection{\titlewithref{Schaltende und stetigähnliche Regler}{61, 71}}
+\titlewithref{Geschaltete Steuerung}{62} \\
+\titlewithref{Zweipunktregler}{63}
+\titlewithref{Zweipunktregler mit interner Rückkopplung}{71} \\
+\titlewithref{Schrittregler}{73}
+\subsection{\titlewithref{Modellierung von Regelstrecken}{42}}
+\titlewithref{Füllprozess}{42} \\
+\titlewithref{elektrischer Heizprozess}{47} \\
+\titlewithref{Gleichstromantrieb}{52}\\
+\titlewithref{Auto (Vorwärtsbewegung)}{57}\\
+\titlewithref{Identifikation weiterer Prozesse}{59}
 
 \newpage
 \input{include/Integraltransformationen/Integraltransformationen.tex}
@@ -261,10 +269,12 @@
       \textbf{}                                                       \\
       \includegraphics[]{img/matlab/transport_delay_block_icon.png} &
       \includegraphics[]{img/matlab/derivative_block_icon.png}      &
-      &
-      &
+                                                                    &
+                                                                    &
       \\
       \hline
 \end{tabular}
+
+\includepdf[pages=-]{AnhangPDF/fourierLaplaceTabelle_v02.pdf}
 
 \end{document}

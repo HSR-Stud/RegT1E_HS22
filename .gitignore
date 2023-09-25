@@ -42,6 +42,7 @@ _ReSharper*/
 
 ## Intermediate documents:
 *.dvi
+*.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
  *.ps
@@ -308,5 +309,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
 
 # End of https://www.gitignore.io/api/linux,macos,windows
